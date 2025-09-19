@@ -10,9 +10,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="FirstPage">
-        <Stack.Screen name="FirstPage" component={FirstPage}/>
-        <Stack.Screen name="CitizenLogin" component={CitizenLogin}/>
-        <Stack.Screen name="AdminDashboard" component={AdminDashboard}/>
+        <Stack.Screen name="FirstPage" component={FirstPage} options={{title:"Voice Unlocked",headerTitleAlign:"center"}}/>
+        <Stack.Screen name="CitizenLogin" component={CitizenLogin} options={{title:"Voice Unlocked",headerTitleAlign:"center"}}/>
+        <Stack.Screen name="AdminDashboard" component={AdminDashboard} options={{title:"Voice Unlocked",headerTitleAlign:"center"}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
