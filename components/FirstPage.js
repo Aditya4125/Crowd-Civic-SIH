@@ -1,6 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, StatusBar, TouchableOpacity} from 'react-native';
-import { SafeAreaView } from 'react-native';
 
 export default function FirstPage() {
   const navigation= useNavigation();
