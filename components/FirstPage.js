@@ -1,7 +1,9 @@
+import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, StatusBar, TouchableOpacity} from 'react-native';
 import { SafeAreaView } from 'react-native';
 
 export default function FirstPage() {
+  const navigation= useNavigation();
   return (
     <View style={styles.container}>
       <Image source={require("../assets/logo.jpg")} style={styles.image}></Image>
@@ -9,10 +11,12 @@ export default function FirstPage() {
       <Text style={styles.description}>Crowdsourced Civic Issue Reporting</Text>
       <Text style={styles.description2}>Modern,scalable civic engagement platform with voice reporting and real-time tracking for efficient issue resolution.</Text>
       <View style={styles.loginButtonContainer}>
-        <TouchableOpacity style={[styles.loginButton,styles.loginButtoncitizen]} onPress={()=>{console.log("onaku yethuku daa login")}}>
+
+        <TouchableOpacity style={[styles.loginButton,styles.loginButtoncitizen]} onPress={()=>navigation.navigate("CitizenLogin")}>
             <Text style={styles.loginButtonText}>Citizen Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.loginButton,styles.adminButton]} onPress={()=>{console.log("onaku yethuku daa login")}}>
+        
+        <TouchableOpacity style={[styles.loginButton,styles.adminButton]} onPress={()=>navigation.navigate("AdminDashboard")}>
             <Text style={styles.loginButtonText}>Admin Dashboard</Text>
         </TouchableOpacity>
       </View>
