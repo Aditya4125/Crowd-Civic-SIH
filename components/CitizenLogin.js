@@ -5,23 +5,32 @@ import { useState } from 'react';
 export default function CitizenLogin(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [aadhar, setAadhar] = useState("");
 
     const validateForm = () => {
         // check empty fields
-        if (!email.trim() || !password.trim()) {
+        if (!email.trim() || !password.trim() || !aadhar.trim()) {
             Alert.alert("Validation Error", "All fields are required!");
             return;
         }
 
-        // simple Gmail regex
+        // Gmail validation
         const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
         if (!emailRegex.test(email)) {
             Alert.alert("Validation Error", "Please enter a valid Gmail address!");
             return;
         }
 
+        // Password validation
         if (password.length < 6) {
             Alert.alert("Validation Error", "Password must be at least 6 characters long!");
+            return;
+        }
+
+        // Aadhar validation (12 digits only)
+        const aadharRegex = /^\d{12}$/;
+        if (!aadharRegex.test(aadhar)) {
+            Alert.alert("Validation Error", "Aadhar number must be exactly 12 digits!");
             return;
         }
 
@@ -53,6 +62,16 @@ export default function CitizenLogin(){
                         secureTextEntry
                         value={password}
                         onChangeText={setPassword}
+                    />
+                    
+                    <Text style={styles.label}>Aadhar Number</Text>
+                    <TextInput 
+                        style={styles.input} 
+                        placeholder='XXXX XXXX XXXX'
+                        value={aadhar}
+                        onChangeText={setAadhar}
+                        keyboardType="numeric"
+                        maxLength={12}
                     />
 
                     <TouchableOpacity style={styles.button} onPress={validateForm}>
