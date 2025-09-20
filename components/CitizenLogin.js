@@ -1,11 +1,14 @@
 import {View,Text, Image, StyleSheet, TextInput, Platform, ScrollView, TouchableOpacity, Alert} from 'react-native';
 import { KeyboardAvoidingView } from 'react-native';
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 export default function CitizenLogin(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [aadhar, setAadhar] = useState("");
+
+    const navigation= useNavigation();
 
     const validateForm = () => {
         // check empty fields
@@ -34,7 +37,7 @@ export default function CitizenLogin(){
             return;
         }
 
-        Alert.alert("Success", "Login Successful!");
+        navigation.navigate("CivicReport")
     };
 
     return(

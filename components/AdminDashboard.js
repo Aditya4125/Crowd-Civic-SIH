@@ -43,8 +43,9 @@ export default function AdminDashboard(){
                     />
 
                     <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-                        <Text style={styles.buttonText}>Submit</Text>
+                        <Text style={styles.buttonText}>Admin Sign In</Text>
                     </TouchableOpacity>
+
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>
@@ -109,7 +110,8 @@ const styles= StyleSheet.create({
         borderRadius:16,
         alignItems:"center",
         backgroundColor:"lightblue",
-        width:"50%",
+        width:"75%",
+        marginBottom:20,
     },
 
     buttonText:{
